@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "---Start the installation---"
-cp test1 /usr/bin/ruptor
-echo "---The program is successfully installed---"
-echo "---Created and Supported by Mogekoff---"
-chmod +x /usr/bin/ruptor

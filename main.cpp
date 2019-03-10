@@ -39,7 +39,7 @@ int main(int argc, char *argv[])            //ruptor -cmd -crypt -lang -filetext
         return 0;
     }
 
-    string crypt = argv[2];
+    string crypt = argv[2]; //-e -c en -t "aa" -k 4
     string lang = argv[3];
     string fileOrText = argv[4];
     string type;
