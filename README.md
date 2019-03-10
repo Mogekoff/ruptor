@@ -21,26 +21,26 @@ Supported algorythms(2): Caesar, XOR
 
 1) Type this commands:
   
-  cd /path/to/ruptor
-  sudo ln -s ./ruptor /usr/bin/ruptor
+cd /path/to/ruptor
+sudo ln -s ./ruptor /usr/bin/ruptor
 
 2) Thats is. Now you can use it just like this: 
-  
-  ruptor -h
+
+ruptor -h
   
 * Using:
 
 This command analyse text by symbol.
-  ruptor analysis --text "Hello World!"
+ruptor analysis --text "Hello World!"
 
 This command ENCRYPT ENglish Text with CAESAR algorytm using letter shift-key 4:
-  ruptor encrypt -t "Hello World!" en caesar 4
+ruptor encrypt -t "Hello World!" en caesar 4
 
 Does the opposite:
-  ruptor decrypt -t "Hello World!" en caesar 4
+ruptor decrypt -t "Hello World!" en caesar 4
   
 Bruteforce of text in file:
-  ruptor decrypt -f "/path/to/file" en caesar --brute
+ruptor decrypt -f "/path/to/file" en caesar --brute
 
 Decoding attempt based on frequency analysis of letters of the alphabet
-  ruptor decrypt -f "/path/to/file" en caesar --frequency
+ruptor decrypt -f "/path/to/file" en caesar --frequency
