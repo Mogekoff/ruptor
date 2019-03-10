@@ -13,7 +13,8 @@ SOURCES += \
 DISTFILES += \
     loremipsum \
     en \
-    ru
+    ru \
+    GITHUBTEST
 
 HEADERS += \
     headers.h \
