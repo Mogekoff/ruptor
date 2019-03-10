@@ -17,7 +17,7 @@ Supported algorythms(2): Caesar, XOR
 2) ???
 3) PROFIT!!1
 
-* Installing:
+* <b>Installing:</b>
 
 1) Type this commands:
   
