@@ -45,3 +45,5 @@ Bruteforce of text in file:<br>
 
 Decoding attempt based on frequency analysis of letters of the alphabet<br>
 ```ruptor decrypt -f "/path/to/file" en caesar --frequency```
+<cite> Thanks for using my programm!
+                                   ©Мogekkof </cite> 
