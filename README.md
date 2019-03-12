@@ -27,24 +27,24 @@ P.S. The installer will do everything for you
 
 2) Thats is. Now you can use it just like this:<br> 
 
-```ruptor -h```
+<b>```ruptor -h```</b>
   
 <h2>* Example Using: </h2>
 
 This command analyse text by symbol.<br>
-```ruptor analysis --text "Hello World!"```
+<b>```ruptor analysis --text "Hello World!"```</b>
 
 This command ENCRYPT ENglish Text with CAESAR algorytm using letter shift-key 4:<br>
-```ruptor encrypt -t "Hello World!" en caesar 4```
+<b>```ruptor encrypt -t "Hello World!" en caesar 4```</b>
 
 Does the opposite:<br>
-```ruptor decrypt -t "Hello World!" en caesar 4```
+<b>```ruptor decrypt -t "Hello World!" en caesar 4```</b>
   
 Bruteforce of text in file:<br>
-```ruptor decrypt -f "/path/to/file" en caesar --brute```
+<b>```ruptor decrypt -f "/path/to/file" en caesar --brute```</b>
 
 Decoding attempt based on frequency analysis of letters of the alphabet<br>
-```ruptor decrypt -f "/path/to/file" en caesar --frequency```
+<b>```ruptor decrypt -f "/path/to/file" en caesar --frequency```</b>
 
 <cite> Thanks for using my programm! </cite>
                                  <cite> ©Мogekkof </cite> 
