@@ -7,7 +7,7 @@
 <h2>* Description:</h2>
 
 This program analyse, encrypt and decrypt information.
-Supported algorythms(2): Caesar, XOR
+Supported algorythms(2): <b>Caesar</b>, <b>XOR</b>
 
 <cite> Created by mogekoff. </cite>
 
