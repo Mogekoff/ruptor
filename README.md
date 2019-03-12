@@ -29,7 +29,7 @@ P.S. The installer will do everything for you
 
 ```ruptor -h```
   
-<h2>* Using: </h2>
+<h2>* Example Using: </h2>
 
 This command analyse text by symbol.<br>
 ```ruptor analysis --text "Hello World!"```
