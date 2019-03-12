@@ -5,11 +5,18 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-    ruptor.cpp
+    ruptor.cpp \
+    algs/caesar.cpp \
+    io.cpp
 
 HEADERS += \
     ruptor.h \
-    headers.h
+    headers.h \
+    algs/caesar.h \
+    io.h
 
 DISTFILES += \
-    langs/en
+    langs/en \
+    langs/ru \
+    fishtext/loremipsum \
+    fishtext/yandexreferat
