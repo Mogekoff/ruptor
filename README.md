@@ -9,8 +9,6 @@
 This program analyse, encrypt and decrypt information.
 Supported algorythms(2): <b>Caesar</b>, <b>XOR</b>
 
-<cite> Created by mogekoff. </cite>
-
 <h2>* Compiling:</h2>
 
 Just open <b>"ruptor.pro"</b> file in Qt Creator and compile this with GCC.
@@ -19,11 +17,8 @@ Just open <b>"ruptor.pro"</b> file in Qt Creator and compile this with GCC.
 
 1) Type this commands:
   
-Navigate to the folder with ruptor_installer.
-
-<b> ```./ruptor_installer``` </b>
-
-P.S. The installer will do everything for you
+<b>``` cd /path/to/ruptor ```<br>
+```  sudo ln -s ./ruptor /usr/bin/ruptor```</b>
 
 2) Thats is. Now you can use it just like this:<br> 
 
@@ -46,5 +41,3 @@ Bruteforce of text in file:<br>
 Decoding attempt based on frequency analysis of letters of the alphabet<br>
 <b>```ruptor decrypt -f "/path/to/file" en caesar --frequency```</b>
 
-<cite> Thanks for using my programm! </cite>
-                                 <cite> ©Мogekkof </cite> 
