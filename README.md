@@ -27,17 +27,20 @@ Just open <b>"ruptor.pro"</b> file in Qt Creator and compile this with GCC.
 <h2>* Example Using: </h2>
 
 This command analyse text by symbol.<br>
-<b>```ruptor analysis --text "Hello World!"```</b>
+<b>```ruptor analysis --texttext "Hello World!"```</b>
 
 This command ENCRYPT ENglish Text with CAESAR algorytm using letter shift-key 4:<br>
-<b>```ruptor encrypt -t "Hello World!" en caesar 4```</b>
+<b>```ruptor encrypt -tt "Hello World!" en caesar 4```</b>
 
 Does the opposite:<br>
-<b>```ruptor decrypt -t "Hello World!" en caesar 4```</b>
+<b>```ruptor decrypt -tt "Hello World!" en caesar 4```</b>
   
 Bruteforce of text in file:<br>
-<b>```ruptor decrypt -f "/path/to/file" en caesar --brute```</b>
+<b>```ruptor decrypt --filetext "/path/to/file" en caesar --brute```</b>
 
 Decoding attempt based on frequency analysis of letters of the alphabet<br>
-<b>```ruptor decrypt -f "/path/to/file" en caesar --frequency```</b>
+<b>```ruptor decrypt -ft "/path/to/file" en caesar --frequency```</b>
 
+
+Xor encrypting/decrypting:<br>
+<b>```ruptor encrypt -tt "0110^0010" 16 xor```</b>
