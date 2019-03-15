@@ -1,10 +1,13 @@
 #include "ruptor.h"
+#include "algs/caesar.h"
+#include <locale>
+#include <codecvt>
 
 Ruptor::Ruptor(int &ArgumentsCount, char **Arguments)
 {
     ArgumentsCount--;       //because first argument is always name of program that useless
 
-
+    wstring_convert<codecvt_utf8_utf16<wchar_t>> converter; //converter arg3 STRING param. to WSTRING
 
     switch(ArgumentsCount) {
 
@@ -26,10 +29,11 @@ Ruptor::Ruptor(int &ArgumentsCount, char **Arguments)
         Help();
         break;
 
-    case 3:                     //ruptor analysis --text [text]
+    case 3:                                                             //ruptor analysis --text [text]
         arg1 = Arguments[1];
         arg2 = Arguments[2];
-        arg3 = Arguments[3];
+        arg3 = converter.from_bytes(Arguments[3]);
+
 
         if(arg1 == "-a" || arg1 =="analysis") {
             //Analysis analysis(arg3)
@@ -41,7 +45,7 @@ Ruptor::Ruptor(int &ArgumentsCount, char **Arguments)
     case 4:
         arg1 = Arguments[1];
         arg2 = Arguments[2];
-        arg3 = Arguments[3];
+        arg3 = converter.from_bytes(Arguments[3]);
         arg4 = Arguments[4];
 
         if(arg1 == "-a" || arg1 =="analysis" ) {
@@ -55,16 +59,13 @@ Ruptor::Ruptor(int &ArgumentsCount, char **Arguments)
     case 5:
         arg1 = Arguments[1];
         arg2 = Arguments[2];
-        arg3 = Arguments[3];
+        arg3 = converter.from_bytes(Arguments[3]);
         arg4 = Arguments[4];
         arg5 = Arguments[5];
 
         if(arg1 == "-e" || arg1 == "encrypt" ) {
-            if (arg5 == "xor") {
-                //Xor xor (arg3,arg5)
-            }
-            else if (arg5 == "caesar") {
-                //Caesar caesar(arg3,arg5)
+            if (arg2 == "-tt") {
+                //Xor xor (arg3,arg4)                                   //ruptor encrypt -tt "0110^0010" 16 xor
             }
         }
         else if (arg1 == "-d" || arg1 == "decrypt") {
@@ -79,21 +80,21 @@ Ruptor::Ruptor(int &ArgumentsCount, char **Arguments)
     case 6:
         arg1 = Arguments[1];
         arg2 = Arguments[2];
-        arg3 = Arguments[3];
+        arg3 = converter.from_bytes(Arguments[3]);
         arg4 = Arguments[4];
         arg5 = Arguments[5];
         arg6 = Arguments[6];
 
-        if(arg1 == "-e" || arg1 == "encrypt") {
-            if (arg5=="caesar") {
-                //Caesar caesar(arg3,arg4,arg6)
+        if(arg1 == "-e" || arg1 == "encrypt") {                         //ruptor encrypt -t "aas" en caesar 2
+            if (arg5=="caesar") {                                       //ruptor decrypt -t "asa" en caesar --brute
+                Caesar caesar(true,arg2,arg3,arg4,arg6);                //rutpro decrypt -t "asa" en caesar --frequency
             }
 
 
         }
         else if(arg1 == "-d" || arg1 == "decrypt") {
             if (arg5=="caesar") {
-                //Caesar caesar(arg3,arg4,arg6)
+                Caesar caesar(false,arg2,arg3,arg4,arg6);
             }
         }
         else
@@ -121,5 +122,5 @@ void Ruptor::Version(){
         <<L"\t#####  #    # #####    #   #    # #####"   <<endl
         <<L"\t#   #  #    # #        #   #    # #   #"   <<endl
         <<L"\t#    #  ####  #        #    ####  #    #"  <<endl
-        <<L"\n* ruptor 0.6.0  \n* analysis/encryption/decryption\n* GNU General Public License v2\n\n* Created and Supported by Mogekoff and NickBorovikov"<<endl<<endl;
+        <<L"\n* ruptor 0.6.5  \n* analysis/encryption/decryption\n* GNU General Public License v2\n\n* Created and Supported by Mogekoff and NickBorovikov"<<endl<<endl;
 }

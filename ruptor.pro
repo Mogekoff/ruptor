@@ -7,13 +7,15 @@ SOURCES += \
         main.cpp \
     ruptor.cpp \
     algs/caesar.cpp \
-    io.cpp
+    io.cpp \
+    cypher.cpp
 
 HEADERS += \
     ruptor.h \
     headers.h \
     algs/caesar.h \
-    io.h
+    io.h \
+    cypher.h
 
 DISTFILES += \
     langs/en \
