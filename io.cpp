@@ -34,7 +34,7 @@ bool IO::GetTextFromFile(wstring dir) {         //ADD SUPPORT FOR UNICODE!!!
         getline (file, line);
         frequency = alphabet = converter.from_bytes(line);
 
-        alphabetLength = signed(line.length());
+        alphabetLength = signed(line.length())/2;
 
         file.close();
     }
@@ -57,26 +57,26 @@ bool IO::SetAlphabet(string lang) {     //ADD SUPPORT FOR UNICODE!!!
         getline (file, line);
         frequency = converter.from_bytes(line);
 
-        alphabetLength = signed(line.length());
+        alphabetLength = signed(line.length())/2;
 
         file.close();
     }
     return true;
 }
-int IO::GetAlphabetLenght(){
-    return alphabetLength;
+int *IO::GetAlphabetLenght(){
+    return &alphabetLength;
 }
-wstring const& IO::GetAlphabet(){
-    return alphabet;
+wstring * IO::GetAlphabet(){
+    return &alphabet;
 }
-wstring const& IO::GetFrequency(){
-    return frequency;
+wstring * IO::GetFrequency(){
+    return &frequency;
 }
-wstring const& IO::GetInputText(){
-    return input;
+wstring * IO::GetInputText(){
+    return &input;
 }
-wstring & IO::GetOutputText() {
-    return output;
+wstring *IO::GetOutputText() {
+    return &output;
 }
 bool IO::SetInputOutputMode(string inout){
     this->inout=inout;
@@ -96,7 +96,7 @@ bool IO::Input(wstring textOrDir){
 
 bool IO::Output() {
     if(inout == "-tt" || inout == "-ft" || inout == "--texttext" || inout == "--filetext") {
-        wcout<<output;
+        wcout<<output<<endl;
         return true;
     }
     else if (inout == "-tf" || inout =="-ff" || inout == "--textfile" || inout == "--filefile"){

@@ -2,21 +2,29 @@
 
 Cypher::Cypher()
 {
-
     this->io = new IO;
 
 }
-
-void Cypher::DoCypher(string inout, wstring textOrDir, string lang) {
+Cypher::~Cypher(){
+    io->Output();
+}
+void Cypher::Init(string inout, wstring textOrDir, string lang) {
 
     io->SetAlphabet(lang);
     io->SetInputOutputMode(inout);
     io->Input(textOrDir);
 
-    alphabet = io->GetAlphabet();
-    frequency = io->GetFrequency();
+    alphabet    = io->GetAlphabet();
+    frequency   = io->GetFrequency();
+    input       = io->GetInputText();
+    output      = io->GetOutputText();
+    alphabetLenght = io->GetAlphabetLenght();
 
-    input = io->GetInputText();
-    output = io->GetOutputText();
+}
 
+bool Cypher::Encrypt(){
+    return true;
+}
+bool Cypher::Decrypt(){
+    return true;
 }
