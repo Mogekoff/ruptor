@@ -1,7 +1,6 @@
 #pragma once
 #include <headers.h>
 #include <fstream>
-#include <locale>
 #include <codecvt>
 
 
@@ -15,10 +14,12 @@ private:
     wstring output;
     string inout;
     int alphabetLength;
+    int inputLenght;
     wstring_convert<codecvt_utf8_utf16<wchar_t>> converter;
 public:
     IO();
     int *GetAlphabetLenght();
+    int *GetInputLenght();
     bool Input(wstring textOrDir);
     bool WriteTextToFile(wstring dir);
     bool GetTextFromFile(wstring dir);

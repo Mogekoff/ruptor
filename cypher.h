@@ -12,7 +12,7 @@ protected:                  //Общие параметры, нужные все
     wstring *input;         //Строка с исходным текстом
     wstring *output;        //Строка с результирующим текстом
     int *alphabetLenght;    //Кол-во букв в алфавите
-
+    int *inputLenght;
 public:
     Cypher();
     virtual ~Cypher();

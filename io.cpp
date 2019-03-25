@@ -6,11 +6,12 @@ IO::IO()
 }
 bool IO::WriteTextToFile(wstring dir) {         //ADD SUPPORT FOR UNICODE!!!
 
-    ofstream file (converter.to_bytes(dir));
+    wofstream file (converter.to_bytes(dir));
+    file.imbue(locale(locale(), new codecvt_utf8<wchar_t>));
 
     if (file.is_open())
     {
-        file<<converter.to_bytes(output);
+        file<<output;
     }
 
 
@@ -18,52 +19,46 @@ bool IO::WriteTextToFile(wstring dir) {         //ADD SUPPORT FOR UNICODE!!!
 }
 bool IO::GetTextFromFile(wstring dir) {         //ADD SUPPORT FOR UNICODE!!!
 
-    string line;
+    wstring line;
 
-    ifstream file (converter.to_bytes(dir));
+    wifstream file (converter.to_bytes(dir));
 
     if (file.is_open())
     {
-        while(line != "ALPHABET:")
-            getline (file, line);
-        getline(file, line);
-        alphabet = converter.from_bytes(line);
-
-        while(line != "FREQUENCY:")
-            getline (file, line);
-        getline (file, line);
-        frequency = alphabet = converter.from_bytes(line);
-
-        alphabetLength = signed(line.length())/2;
 
         file.close();
     }
     return true;
 }
-bool IO::SetAlphabet(string lang) {     //ADD SUPPORT FOR UNICODE!!!
-    string line;
+bool IO::SetAlphabet(string lang) {
+    wstring line;
 
-    ifstream file ("../langs/"+lang);   //WHY TWO DOTS "../" ??? (but it works)
+    wifstream file ("../ruptor/langs/"+lang);               //"lang" == en, ru, etc. Same as file.
+
+    file.imbue(locale(locale(), new codecvt_utf8<wchar_t>));//Change encoding of stream to Utf-8
 
     if (file.is_open())
     {
-        while(line != "ALPHABET:")
+        while(line != L"ALPHABET:")
             getline (file, line);
         getline(file, line);
-        alphabet = converter.from_bytes(line);
+        alphabet = line;
 
-        while(line != "FREQUENCY:")
+        while(line != L"FREQUENCY:")
             getline (file, line);
         getline (file, line);
-        frequency = converter.from_bytes(line);
+        frequency = line;
 
-        alphabetLength = signed(line.length())/2;
+        alphabetLength = signed(line.size())/2;     //Division by 2 because alphabet contains uppercase and lowercase same letters.
 
         file.close();
     }
     return true;
 }
-int *IO::GetAlphabetLenght(){
+int     * IO::GetInputLenght() {
+    return &inputLenght;
+}
+int     * IO::GetAlphabetLenght(){
     return &alphabetLength;
 }
 wstring * IO::GetAlphabet(){
@@ -75,7 +70,7 @@ wstring * IO::GetFrequency(){
 wstring * IO::GetInputText(){
     return &input;
 }
-wstring *IO::GetOutputText() {
+wstring * IO::GetOutputText() {
     return &output;
 }
 bool IO::SetInputOutputMode(string inout){
@@ -85,10 +80,12 @@ bool IO::SetInputOutputMode(string inout){
 bool IO::Input(wstring textOrDir){
     if (inout == "-tt" || inout == "-tf" || inout == "--textfile" || inout == "--texttext") {
         input = textOrDir;
+        inputLenght=signed(input.length());
         return true;
     }
     else if(inout == "-ft" || inout == "-ff" || inout == "--filetext" || inout == "--filefile") {
         GetTextFromFile(textOrDir);
+        inputLenght=signed(input.length());
         return true;
     }
     else return false;
