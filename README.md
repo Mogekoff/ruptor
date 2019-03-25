@@ -35,7 +35,7 @@ This command ENCRYPT ENglish Text with CAESAR algorytm using letter shift-key 4:
 Does the opposite:<br>
 <b>```ruptor decrypt -tt "Hello World!" en caesar 4```</b>
   
-Bruteforce of text in file:<br>
+Bruteforce of text from file:<br>
 <b>```ruptor decrypt --filetext "/path/to/file" en caesar --brute```</b>
 
 Decoding attempt based on frequency analysis of letters of the alphabet<br>
@@ -43,4 +43,4 @@ Decoding attempt based on frequency analysis of letters of the alphabet<br>
 
 
 Xor encrypting/decrypting:<br>
-<b>```ruptor encrypt -tt "0110^0010" 16 xor```</b>
+<b>```ruptor encrypt -tt "0110^0010" 2 xor```</b>
