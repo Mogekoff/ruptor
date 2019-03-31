@@ -5,10 +5,6 @@ Caesar::Caesar(bool isEncryptOrElse, string inout, wstring textOrDir, string lan
 {
     Cypher::Init(inout, textOrDir,lang);
 
-
-
-
-
     if (isEncryptOrElse) {      //Проверка: шифровать или расшифровывать
         key = stoi(p1);         //Перевод ключа из строки в число
         Encrypt();
@@ -34,7 +30,6 @@ Caesar::Caesar(bool isEncryptOrElse, string inout, wstring textOrDir, string lan
             Decrypt();
         }
     }
-
 
 }
 bool Caesar::Encrypt(){
@@ -71,7 +66,7 @@ bool Caesar::Encrypt(){
     return true;
 
 }
-bool Caesar::Decrypt(){
+bool Caesar::Decrypt() {
 
     key=-key;       //Т.к. шифр симметричный, то ф-ции расширофки и шифровки одинаковые.
 
